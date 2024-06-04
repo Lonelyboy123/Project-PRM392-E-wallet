@@ -6,7 +6,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.prm392_project.R;
+import com.example.project_prm392.*;
 
 public class TopUpActivity extends AppCompatActivity {
     @Override
