@@ -1,0 +1,31 @@
+1. Chị Hòa
+change_password
+forgot_password
+main
+login
+profile
+update_profile
+user
+logout
+2. anh Trung
+list_all-trans - hiển thị danh sách đã chuyển tiền của tk
+list_payment_method - hiển thị danh sách ngân hàng
+paying - Hiển thị ra những khoản cần chi trả(tiền học, tiền ktx)
+qrgennerate - tạo mã qr 
+qrscan - quét mã qr
+transaction_detail - chi tiết hóa đơn
+transaction_result - kết quả hóa đơn
+3. chị Châu
+enter_code
+pinactivity
+pinintro
+report
+report_list
+set_up_pincode
+transfer
+4. EM
+Top_up
+setting
+start
+setup_pass
+semester_fee
