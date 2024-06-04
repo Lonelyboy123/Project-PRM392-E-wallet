@@ -20,7 +20,7 @@ enter_code
 pinactivity
 pinintro
 report
-report_list
+report list
 set_up_pincode
 transfer
 4. EM
@@ -29,3 +29,4 @@ setting
 start
 setup_pass
 semester_fee
+setup_password
