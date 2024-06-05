@@ -9,6 +9,7 @@ public class BaseActivity extends AppCompatActivity {
     private Firebase firebase;
     public FirebaseAuth auth;
     public String TAG = "E-Wallet-Check";
-    
+
+
 
 }
