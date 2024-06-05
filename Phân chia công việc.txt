@@ -24,9 +24,9 @@ report list
 set_up_pincode
 transfer
 4. EM
-Top_up
+Top_up 
 setting
 start
 setup_pass
 semester_fee
-setup_password
+
