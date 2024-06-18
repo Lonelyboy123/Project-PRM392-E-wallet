@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        EdgeToEdge.enable(this);
         studentInfoTextView = findViewById(R.id.studentInfoTextView);
         databaseReference = FirebaseDatabase.getInstance().getReference("Student");
 
