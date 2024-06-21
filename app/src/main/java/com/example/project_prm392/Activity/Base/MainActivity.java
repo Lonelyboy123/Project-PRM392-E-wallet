@@ -27,36 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         EdgeToEdge.enable(this);
-        studentInfoTextView = findViewById(R.id.studentInfoTextView);
         databaseReference = FirebaseDatabase.getInstance().getReference("Student");
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // Đọc thông tin sinh viên từ Firebase
-                String studentInfo = "";
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Student student = snapshot.getValue(Student.class);
-                    if (student != null) {
-                        studentInfo += "Roll Number: " + student.getStudent_roll_number() + "\n";
-                        studentInfo += "Name: " + student.getStudent_name() + "\n";
-                        studentInfo += "Email: " + student.getStudent_email() + "\n";
-                        studentInfo += "Phone: " + student.getStudent_phone() + "\n";
-
-                        studentInfo += "Password: " + student.getStudent_password() + "\n";
-                        studentInfo += "PIN: " + student.getStudent_PIN() + "\n";
-                        studentInfo += "Status: " + student.getStatus() + "\n\n";
-                    }
-                }
-                // Hiển thị thông tin sinh viên lên TextView
-                studentInfoTextView.setText(studentInfo);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Xử lý khi có lỗi xảy ra
-            }
-
-        });
     }
 }
