@@ -8,13 +8,13 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.project_prm392.*;
 import com.example.project_prm392.Activity.Base.MainActivity;
+import com.example.project_prm392.Activity.Base.PinIntroActivity;
+import com.example.project_prm392.Security.PINActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -74,7 +74,7 @@ public class TopUpActivity extends AppCompatActivity {
             String studentPIN = preferences.getString("student_PIN", "");
 
             if (studentPIN.isEmpty()) {
-                startActivity(new Intent(TopUpActivity.this, PINIntroActivity.class));
+                startActivity(new Intent(TopUpActivity.this, PinIntroActivity.class));
             } else {
                 String amountText = binding.edtAmount.getText().toString().trim();
 
@@ -130,7 +130,7 @@ public class TopUpActivity extends AppCompatActivity {
         });
 
 
-        binding.btnPaymentMethod.setOnClickListener(v -> startActivity(new Intent(TopUpActivity.this, ListPaymentMethodActivity.class)));
+//        binding.btnPaymentMethod.setOnClickListener(v -> startActivity(new Intent(TopUpActivity.this, ListPaymentMethodActivity.class)));       note thissss
     }
 
 }
