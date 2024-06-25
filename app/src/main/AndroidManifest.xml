@@ -14,7 +14,30 @@
         android:theme="@style/Theme.ProjectPRM392"
         tools:targetApi="31">
         <activity
-            android:name=".Activity.Base.MainActivity"
+            android:name=".Activity.Transaction.Paying.SemesterFeeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Authentication.ChangePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Transaction.QR.QRGenerateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Transaction.QR.QRScanActivity"
+            android:exported="false">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
+            android:name=".Activity.Base.PINIntroActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Base.StartActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,6 +45,75 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Activity.Report.ReportListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Transaction.Paying.PayingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Payment.ListPaymentMethodActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Adapter.BankAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Transaction.TransactionView.TransactionDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Transaction.TransactionView.ListAllTransactionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Report.ReportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.StudentInformation.UpdateProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.StudentInformation.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Transaction.TransactionStatus.TransactionResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.StudentInformation.SettingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.StudentInformation.UserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Security.SetUpPINCodeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Security.PINActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Payment.PaymentMethodActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Transaction.TransferActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Transaction.TopUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Authentication.ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Security.EnterCodeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Base.BaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Authentication.SetupPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Authentication.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Base.MainActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
