@@ -3,6 +3,7 @@ package com.example.project_prm392.Activity.Base;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.project_prm392.Security.SetUpPINCodeActivity;
 import com.example.project_prm392.databinding.ActivityPinintroBinding;
 
 public class PinIntroActivity extends BaseActivity{
