@@ -4,6 +4,9 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
@@ -42,6 +45,18 @@ public class BankAdapter extends  RecyclerView.Adapter<BankAdapter.viewholder>{
 
     @Override
     public int getItemCount() {
-        return 0;
+        return banks.size();
+    }
+
+    public class viewholder extends RecyclerView.ViewHolder {
+        TextView tv_name, tv_id, tv_bin;
+        ImageView img_logo;
+
+        public viewholder(@NonNull View itemView) {
+            super(itemView);
+            tv_name = itemView.findViewById(R.id.bank_name);
+            img_logo = itemView.findViewById(R.id.bank_logo);
+
+        }
     }
 }
