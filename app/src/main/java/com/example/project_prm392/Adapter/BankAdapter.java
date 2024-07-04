@@ -4,7 +4,9 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,6 +18,10 @@ import java.util.ArrayList;
 public class BankAdapter extends  RecyclerView.Adapter<BankAdapter.viewholder>{
     ArrayList<Banks> banks;
     Context context;
+    public BankAdapter(Context context, ArrayList<Banks> banks) {
+        this.context = context;
+        this.banks = banks;
+    }
     @NonNull
     @Override
     public BankAdapter.viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -25,6 +31,12 @@ public class BankAdapter extends  RecyclerView.Adapter<BankAdapter.viewholder>{
 
     @Override
     public void onBindViewHolder(@NonNull BankAdapter.viewholder holder, int position) {
+        holder.tv_name.setText(banks.get(position).getName());
+        Glide.with(context)
+                .load(banks.get(position).getLogo())
+                .override(50, 50) // Set the width and height to match the ImageView dimensions
+                .transform(new CenterCrop(), new RoundedCorners(5))
+                .into(holder.img_logo);
 
     }
 
