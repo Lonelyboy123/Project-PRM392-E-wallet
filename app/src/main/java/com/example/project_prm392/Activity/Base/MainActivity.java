@@ -15,6 +15,9 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.project_prm392.Activity.Authentication.LoginActivity;
+import com.example.project_prm392.Activity.Report.ReportActivity;
+import com.example.project_prm392.Activity.StudentInformation.UserActivity;
+import com.example.project_prm392.Activity.Transaction.TopUpActivity;
 import com.example.project_prm392.Adapter.TransactionAdapter;
 import com.example.project_prm392.databinding.ActivityMainBinding;
 import com.example.project_prm392.entities.Student;
