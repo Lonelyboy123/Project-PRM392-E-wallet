@@ -16,4 +16,11 @@ public class PayingActivity extends BaseActivity {
         getStudentFee();
         handleButton();
     }
+
+    private void handleButton() {
+    }
+
+    private void getStudentFee() {
+        
+    }
 }

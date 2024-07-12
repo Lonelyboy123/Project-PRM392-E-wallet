@@ -19,6 +19,7 @@ import com.example.project_prm392.Activity.Report.ReportActivity;
 import com.example.project_prm392.Activity.StudentInformation.UserActivity;
 import com.example.project_prm392.Activity.Transaction.TopUpActivity;
 import com.example.project_prm392.Adapter.TransactionAdapter;
+import com.example.project_prm392.Transaction.Paying.PayingActivity;
 import com.example.project_prm392.databinding.ActivityMainBinding;
 import com.example.project_prm392.entities.Student;
 import com.example.project_prm392.entities.Transaction;
