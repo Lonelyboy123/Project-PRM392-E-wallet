@@ -14,7 +14,7 @@ import com.example.project_prm392.entities.Transaction;
 
 import com.example.project_prm392.Activity.helper.DataEncode;
 import com.example.project_prm392.R;
-import com.example.project_prm392.Transaction.TransactionView.TransactionDetailActivity;
+import com.example.project_prm392.Activity.Transaction.TransactionView.TransactionDetailActivity;
 
 
 import java.util.List;

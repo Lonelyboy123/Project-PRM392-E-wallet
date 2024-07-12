@@ -1,8 +1,7 @@
-package com.example.project_prm392.Transaction.TransactionView;
+package com.example.project_prm392.Activity.Transaction.TransactionView;
 
 import com.example.project_prm392.Activity.Base.BaseActivity;
 import com.example.project_prm392.Activity.Base.MainActivity;
-import com.example.project_prm392.Adapter.TransactionAdapter;
 import com.example.project_prm392.entities.Transaction;
 
 import com.example.project_prm392.databinding.ActivityListAllTransactionBinding;

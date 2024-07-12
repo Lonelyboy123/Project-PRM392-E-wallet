@@ -1,4 +1,4 @@
-package com.example.project_prm392.Transaction.Paying;
+package com.example.project_prm392.Activity.Transaction.Paying;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
