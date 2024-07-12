@@ -4,14 +4,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.project_prm392.Activity.Authentication.LoginActivity;
@@ -19,15 +13,13 @@ import com.example.project_prm392.Activity.Report.ReportActivity;
 import com.example.project_prm392.Activity.StudentInformation.UserActivity;
 import com.example.project_prm392.Activity.Transaction.TopUpActivity;
 import com.example.project_prm392.Adapter.TransactionAdapter;
-import com.example.project_prm392.Transaction.Paying.PayingActivity;
+import com.example.project_prm392.Activity.Transaction.Paying.PayingActivity;
 import com.example.project_prm392.databinding.ActivityMainBinding;
-import com.example.project_prm392.entities.Student;
 import com.example.project_prm392.entities.Transaction;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 

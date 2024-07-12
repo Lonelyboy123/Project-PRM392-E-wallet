@@ -1,4 +1,4 @@
-package com.example.project_prm392.Transaction.Paying;
+package com.example.project_prm392.Activity.Transaction.Paying;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
