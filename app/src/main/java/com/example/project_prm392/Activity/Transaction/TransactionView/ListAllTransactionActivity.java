@@ -25,7 +25,7 @@ import com.google.firebase.database.DatabaseReference;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListAllTransaction extends BaseActivity {
+public class ListAllTransactionActivity extends BaseActivity {
     ActivityListAllTransactionBinding binding;
     private com.example.project_prm392.Adapter.TransactionAdapter adapter;
     private List<Transaction> transactions = new ArrayList<>();
@@ -114,7 +114,7 @@ public class ListAllTransaction extends BaseActivity {
     }
 
     private void handleButton() {
-        binding.btnAllTransactionBack.setOnClickListener(v -> startActivity(new Intent(ListAllTransaction.this, MainActivity.class)));
+        binding.btnAllTransactionBack.setOnClickListener(v -> startActivity(new Intent(ListAllTransactionActivity.this, MainActivity.class)));
     }
 
 }
