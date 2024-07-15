@@ -5,7 +5,7 @@
     android:id="@+id/btn_comfirm"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Security.PINActivity">
+    tools:context=".Activity.Security.PINActivity">
 
     <TextView
         android:id="@+id/textView15"

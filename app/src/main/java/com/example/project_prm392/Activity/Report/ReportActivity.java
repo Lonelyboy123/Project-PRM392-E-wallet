@@ -4,22 +4,26 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ArrayAdapter;
 
 import com.example.project_prm392.Activity.Base.BaseActivity;
 import com.example.project_prm392.Activity.Base.MainActivity;
+import com.example.project_prm392.entities.Report;
 import com.example.project_prm392.Activity.helper.DataEncode;
 import com.example.project_prm392.databinding.ActivityReportBinding;
-import com.example.project_prm392.entities.Report;
 import com.google.firebase.database.DatabaseReference;
 
 import java.util.Objects;
 
-public class ReportActivity  extends BaseActivity {
+public class ReportActivity extends BaseActivity {
     ActivityReportBinding binding;
 
     DataEncode dataEncode = new DataEncode();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +36,13 @@ public class ReportActivity  extends BaseActivity {
         setVariable();
         handleTextChange();
         handleButton();
+    }
+
+    private void setVariable() {
+        String[] options = {"Lỗi giao dịch", "Vấn đề khác"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, options);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        binding.spReportCategory.setAdapter(adapter);
     }
 
     private void handleButton() {
@@ -64,6 +75,7 @@ public class ReportActivity  extends BaseActivity {
         });
         binding.textView99.setOnClickListener(v -> startActivity(new Intent(ReportActivity.this, ReportListActivity.class)));
     }
+
     private void showDialogAndNavigateToMainActivity() {
         // Hiển thị dialog thông báo
         AlertDialog.Builder builder = new AlertDialog.Builder(ReportActivity.this);
@@ -76,16 +88,78 @@ public class ReportActivity  extends BaseActivity {
                 }).show();
     }
 
+
     private void handleTextChange() {
-        
+        binding.edtReportTransactionId.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String report_transaction_id = s.toString().trim();
+                boolean isTransactionIdValid = report_transaction_id.matches("^(-N.{18})$");
+                binding.tvReportErr1.setVisibility(isTransactionIdValid ? View.GONE : View.VISIBLE);
+                enableReportButton();
+            }
+        });
+
+        binding.edtReportTitle.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String report_title = s.toString().trim();
+                boolean isTitleValid = report_title.matches("^.{1,49}$");
+                binding.tvReportErr2.setVisibility(isTitleValid ? View.GONE : View.VISIBLE);
+                enableReportButton();
+            }
+        });
+
+        binding.edtReportDescription.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String report_description = s.toString().trim();
+                boolean isDescriptionValid = report_description.matches("^.{1,199}$");
+                binding.tvReportErr3.setVisibility(isDescriptionValid ? View.GONE : View.VISIBLE);
+                enableReportButton();
+            }
+        });
     }
 
-    private void setVariable() {
-        String[] options = {"Lỗi giao dịch", "Vấn đề khác"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, options);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        binding.spReportCategory.setAdapter(adapter);
-        
+    private void enableReportButton() {
+        String report_transaction_id = binding.edtReportTransactionId.getText().toString().trim();
+        String report_title = Objects.requireNonNull(binding.edtReportTitle.getText()).toString().trim();
+        String report_description = Objects.requireNonNull(binding.edtReportDescription.getText()).toString().trim();
+        boolean isTransactionIdValid = report_transaction_id.matches("^(-N.{18})$");
+        boolean isTitleValid = report_title.matches("^.{1,49}$");
+        boolean isDescriptionValid = report_description.matches("^.{1,199}$");
+        binding.btnReportCf.setEnabled(isTransactionIdValid && isTitleValid && isDescriptionValid);
     }
 
 }
