@@ -8,15 +8,16 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.project_prm392.entities.Report;
 import com.example.project_prm392.R;
+
 
 import java.util.List;
 
 public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.viewholder> {
     List<Report> reportList;
     Context context;
+
 
     public ReportAdapter(List<Report> reportList) {
         this.reportList = reportList;
@@ -25,13 +26,16 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.viewholder
     @NonNull
     @Override
     public viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         context = parent.getContext();
         View inflate = LayoutInflater.from(context).inflate(R.layout.viewholder_report, parent, false);
         return new viewholder(inflate);
     }
 
     @Override
+
     public void onBindViewHolder(@NonNull viewholder holder, int position) {
+
         Report report = reportList.get(position);
         if(report.getReport_status() == 0){
             holder.status.setText("Chờ xủ lý");
