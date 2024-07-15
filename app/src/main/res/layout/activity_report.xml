@@ -36,6 +36,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/cardView3"
         app:layout_constraintStart_toStartOf="parent" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView3"
         android:layout_width="match_parent"
