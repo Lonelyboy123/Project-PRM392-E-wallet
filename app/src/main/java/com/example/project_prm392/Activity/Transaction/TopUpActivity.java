@@ -6,34 +6,38 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
+
+import com.example.project_prm392.Activity.Base.BaseActivity;
 import com.example.project_prm392.Activity.Base.MainActivity;
 import com.example.project_prm392.Activity.Base.PinIntroActivity;
+import com.example.project_prm392.Activity.Payment.ListPaymentMethodActivity;
+import com.example.project_prm392.R;
 import com.example.project_prm392.Security.PINActivity;
+import com.example.project_prm392.databinding.ActivityTopUpBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.example.project_prm392.databinding.ActivityTopUpBinding;
-import com.example.project_prm392.Activity.Base.BaseActivity;
-import com.example.project_prm392.Activity.Payment.ListPaymentMethodActivity;
-public class TopUpActivity extends AppCompatActivity {
-    private ActivityTopUpBinding binding;
-    BaseActivity baseActivity = new BaseActivity();
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
+public class TopUpActivity extends BaseActivity {
+    private ActivityTopUpBinding binding;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         binding = ActivityTopUpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         setVariable();
+        selectAmount();
     }
+
     private void setVariable() {
         binding.btnBack.setOnClickListener(v -> {
             startActivity(new Intent(TopUpActivity.this, MainActivity.class));
@@ -82,9 +86,9 @@ public class TopUpActivity extends AppCompatActivity {
                     int amount_top_up = Integer.parseInt(amountText);
 
                     // Calculate total transaction amount today
-                    DatabaseReference reference = baseActivity.database.getReference("Transaction").child(student_roll_number);
+                    DatabaseReference reference = database.getReference("Transaction").child(student_roll_number);
 
-                    Query query = reference.orderByChild("time").startAt(baseActivity.dataEncode.getTodayDateString());
+                    Query query = reference.orderByChild("time").startAt(dataEncode.getTodayDateString());
 
                     query.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
@@ -133,4 +137,21 @@ public class TopUpActivity extends AppCompatActivity {
         binding.btnPaymentMethod.setOnClickListener(v -> startActivity(new Intent(TopUpActivity.this, ListPaymentMethodActivity.class)));
     }
 
+
+    private void selectAmount() {
+        final TextView[] amountTextViews = {binding.tv10K, binding.tv20K, binding.tv50K,
+                binding.tv100K, binding.tv200K, binding.tv500K};
+
+        for (final TextView amountTextView : amountTextViews) {
+            amountTextView.setOnClickListener(v -> {
+                for (TextView tv : amountTextViews) {
+                    tv.setBackgroundResource(R.drawable.edittext_background);
+                }
+                String amountValue = amountTextView.getText().toString().replace("_", "").replace(".", "");
+                binding.edtAmount.setText(amountValue);
+                binding.tvAmountTopUp.setText(dataEncode.formatMoney(Integer.parseInt(amountValue)));
+                amountTextView.setBackgroundResource(R.drawable.edittext_background_red);
+            });
+        }
+    }
 }

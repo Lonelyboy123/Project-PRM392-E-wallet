@@ -1,4 +1,5 @@
 package com.example.project_prm392.Adapter;
+
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -10,14 +11,10 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.project_prm392.Helper.DataEncode;
-import com.example.project_prm392.entities.Transaction;
-
-
-
-import com.example.project_prm392.R;
 import com.example.project_prm392.Activity.Transaction.TransactionView.TransactionDetailActivity;
-
+import com.example.project_prm392.Helper.DataEncode;
+import com.example.project_prm392.R;
+import com.example.project_prm392.entities.Transaction;
 
 import java.util.List;
 
@@ -51,7 +48,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         holder.transaction_time_txt.setText(transaction.getTime());
 
         // Set color based on category
-        if (transaction.getCategory().equals("Náº¡p tiá»n vÃ o vÃ­") || transaction.getCategory().equals("Nháº­n tiá»n tá»« vÃ­ khÃ¡c")) {
+        if (transaction.getCategory().equals("Nạp tiền vào ví") || transaction.getCategory().equals("Nhận tiền từ ví khác")) {
             holder.transaction_amount_txt.setText(String.format("+ %s", dataEncode.formatMoney(transaction.getAmount())));
             holder.transaction_amount_txt.setTextColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.main_green));
         } else {
@@ -60,7 +57,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         }
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, TransactionDetailActivity.class);
-            intent.putExtra("object", (CharSequence) list.get(position));
+            intent.putExtra("object", list.get(position));
             context.startActivity(intent);
         });
     }
@@ -82,4 +79,3 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         }
     }
 }
-
