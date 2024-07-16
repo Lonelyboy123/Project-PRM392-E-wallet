@@ -7,6 +7,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.project_prm392.Activity.Payment.ListPaymentMethodActivity;
+import com.example.project_prm392.Security.SetUpPINCodeActivity;
 import com.example.project_prm392.databinding.ActivitySettingBinding;
 
 public class SettingActivity extends AppCompatActivity {
@@ -25,6 +26,16 @@ public class SettingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SettingActivity.this, ListPaymentMethodActivity.class));
+            }
+        });
+
+        //Handle "Thiết lập mã PIN"
+        binding.btnToSetupPIN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SettingActivity.this, SetUpPINCodeActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

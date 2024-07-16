@@ -1,4 +1,4 @@
-package com.example.project_prm392.Activity.API;
+package com.example.project_prm392.API.BankAPI;
 
 import com.example.project_prm392.entities.Banks;
 import com.google.gson.annotations.SerializedName;

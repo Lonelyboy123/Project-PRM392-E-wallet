@@ -16,7 +16,8 @@ import androidx.annotation.NonNull;
 import com.example.project_prm392.Activity.Base.BaseActivity;
 import com.example.project_prm392.Activity.Base.MainActivity;
 import com.example.project_prm392.Activity.StudentInformation.UserActivity;
-import com.example.project_prm392.Activity.helper.DataEncode;
+
+import com.example.project_prm392.Helper.DataEncode;
 import com.example.project_prm392.databinding.ActivitySetUpPincodeBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
