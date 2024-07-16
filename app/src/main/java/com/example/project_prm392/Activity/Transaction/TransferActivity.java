@@ -1,13 +1,17 @@
 package com.example.project_prm392.Activity.Transaction;
 
+
+import androidx.annotation.NonNull;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 
 import com.example.project_prm392.Activity.Base.BaseActivity;
 import com.example.project_prm392.Activity.Base.MainActivity;
@@ -22,6 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 public class TransferActivity extends BaseActivity {
     ActivityTransferBinding binding;
     private ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,13 +38,6 @@ public class TransferActivity extends BaseActivity {
         getBalance();
         handleError();
         handleButton();
-    }
-
-    private void handleError() {
-    }
-
-    private void getBalance() {
-        
     }
 
     private void handleButton() {
@@ -66,6 +64,72 @@ public class TransferActivity extends BaseActivity {
             }
         });
     }
+
+    private void handleError() {
+        binding.edtTransferTo.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void afterTextChanged(Editable s) {
+                enableButton();
+                String rollNumber = s.toString().trim();
+                binding.tvTransferErrMssv.setVisibility(!isValidRollNumber(rollNumber) ? View.VISIBLE : View.GONE);
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+        });
+
+        binding.edtTransferAmount.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void afterTextChanged(Editable s) {
+                enableButton();
+                if (!TextUtils.isEmpty(s.toString())) {
+                    long transferAmount = Long.parseLong(s.toString());
+                    long currentBalance = Long.parseLong(binding.tvTransferCurrentBalance.getText().toString().replaceAll("[^0-9]", ""));
+                    binding.tvTransferErrAmount.setVisibility(transferAmount > currentBalance ? View.VISIBLE : View.GONE);
+                }
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+        });
+    }
+
+    private boolean isValidRollNumber(String rollNumber) {
+        // Kiểm tra xem MSSV có đúng định dạng không
+        return rollNumber.matches("^[A-Za-z]{2}\\d{6}$") && !rollNumber.equals(getSharedPreferences("currentStudent", MODE_PRIVATE).getString("student_roll_number", ""));
+    }
+
+    private void getBalance() {
+        DatabaseReference reference = database.getReference("Student");
+        Query query = reference.orderByChild("student_roll_number").equalTo(getSharedPreferences("currentStudent", MODE_PRIVATE).getString("student_roll_number", ""));
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    DataSnapshot studentDataSnapshot = snapshot.getChildren().iterator().next();
+                    long currentAmount = studentDataSnapshot.child("student_amount").getValue(Long.class);
+
+                    binding.tvTransferCurrentBalance.setText(dataEncode.formatMoney(currentAmount));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(TransferActivity.this, "Đã xảy ra lỗi khi lấy số dư", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     private void checkRollNumberExist(String rollNumber) {
         DatabaseReference reference = database.getReference("Student");
         Query query = reference.orderByChild("student_roll_number").equalTo(rollNumber);
@@ -94,4 +158,9 @@ public class TransferActivity extends BaseActivity {
         });
     }
 
+    private void enableButton() {
+        String rollNumber = binding.edtTransferTo.getText().toString().trim();
+        String amount = binding.edtTransferAmount.getText().toString().trim();
+        binding.btnTransferContinue.setEnabled(!TextUtils.isEmpty(rollNumber) && !TextUtils.isEmpty(amount) && isValidRollNumber(rollNumber));
+    }
 }
