@@ -1,6 +1,8 @@
 package com.example.project_prm392.entities;
 
-public class Transaction {
+import java.io.Serializable;
+
+public class Transaction implements Serializable {
     private String hash;
     private String previousHash;
     private String from;

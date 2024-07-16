@@ -16,8 +16,8 @@ import javax.mail.internet.MimeMessage;
 public class SendOTP {
     public void sendMail(String receive_email, String email_subject, String text) {
         try {
-            String senderEmail = "kiennt7902@gmail.com";
-            String passwordSenderEmail = "faij clhl rxho ohmt";
+            String senderEmail = "thegoodrat662@gmail.com";
+            String passwordSenderEmail = "azpd dvxq rpaj umud";
 
             String stringHost = "smtp.gmail.com";
             Properties properties = System.getProperties();
