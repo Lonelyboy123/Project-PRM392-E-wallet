@@ -1,4 +1,4 @@
-package com.example.project_prm392.Activity.helper;
+package com.example.project_prm392.Helper;
 
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -9,9 +9,6 @@ import java.util.Locale;
 import java.util.Random;
 
 public class DataEncode {
-
-
-
     public String hashData(String plainTextPassword) {
         int workload = 12;
         String salt = BCrypt.gensalt(workload);

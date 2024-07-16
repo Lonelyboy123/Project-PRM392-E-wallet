@@ -22,7 +22,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.example.project_prm392.databinding.ActivityTopUpBinding;
 import com.example.project_prm392.Activity.Base.BaseActivity;
-
+import com.example.project_prm392.Activity.Payment.ListPaymentMethodActivity;
 public class TopUpActivity extends AppCompatActivity {
     private ActivityTopUpBinding binding;
     BaseActivity baseActivity = new BaseActivity();
@@ -130,7 +130,7 @@ public class TopUpActivity extends AppCompatActivity {
         });
 
 
-//        binding.btnPaymentMethod.setOnClickListener(v -> startActivity(new Intent(TopUpActivity.this, ListPaymentMethodActivity.class)));       note thissss
+        binding.btnPaymentMethod.setOnClickListener(v -> startActivity(new Intent(TopUpActivity.this, ListPaymentMethodActivity.class)));
     }
 
 }

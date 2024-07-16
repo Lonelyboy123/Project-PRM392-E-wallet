@@ -9,15 +9,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.project_prm392.Activity.Authentication.LoginActivity;
+import com.example.project_prm392.Activity.Base.BaseActivity;
 import com.example.project_prm392.Activity.Report.ReportActivity;
 import com.example.project_prm392.Activity.StudentInformation.UserActivity;
+import com.example.project_prm392.Activity.Transaction.Paying.PayingActivity;
+import com.example.project_prm392.Activity.Transaction.QR.QRGenerateActivity;
 import com.example.project_prm392.Activity.Transaction.TopUpActivity;
-
 import com.example.project_prm392.Activity.Transaction.TransactionView.ListAllTransactionActivity;
-
 import com.example.project_prm392.Activity.Transaction.TransferActivity;
 import com.example.project_prm392.Adapter.TransactionAdapter;
-import com.example.project_prm392.Activity.Transaction.Paying.PayingActivity;
 import com.example.project_prm392.databinding.ActivityMainBinding;
 import com.example.project_prm392.entities.Transaction;
 import com.google.firebase.database.ChildEventListener;
@@ -31,11 +31,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends BaseActivity {
-
     private ActivityMainBinding binding;
     private TransactionAdapter adapter;
     private final List<Transaction> transactions = new ArrayList<>();
@@ -151,3 +151,4 @@ public class MainActivity extends BaseActivity {
 
 
 }
+

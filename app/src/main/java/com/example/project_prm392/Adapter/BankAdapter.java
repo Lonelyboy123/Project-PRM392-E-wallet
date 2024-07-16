@@ -1,5 +1,8 @@
 package com.example.project_prm392.Adapter;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,26 +13,27 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.project_prm392.R;
 import com.example.project_prm392.entities.Banks;
 
+
 import java.util.ArrayList;
 
-public class BankAdapter extends  RecyclerView.Adapter<BankAdapter.viewholder>{
+
+public class BankAdapter extends RecyclerView.Adapter<BankAdapter.viewholder> {
     ArrayList<Banks> banks;
     Context context;
-    public BankAdapter(Context context, ArrayList<Banks> banks) {
-        this.context = context;
-        this.banks = banks;
-    }
+
     @NonNull
     @Override
     public BankAdapter.viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_bank, parent, false);
         return new viewholder(view);
+    }
+
+    public BankAdapter(Context context, ArrayList<Banks> banks) {
+        this.context = context;
+        this.banks = banks;
     }
 
     @Override

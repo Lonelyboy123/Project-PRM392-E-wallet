@@ -1,15 +1,16 @@
 package com.example.project_prm392.Activity.Authentication;
 
-import android.app.Activity;
+import androidx.annotation.NonNull;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 
 import com.example.project_prm392.Activity.Base.BaseActivity;
 import com.example.project_prm392.databinding.ActivitySetupPasswordBinding;

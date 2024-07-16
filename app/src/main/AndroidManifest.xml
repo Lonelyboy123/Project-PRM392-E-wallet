@@ -34,7 +34,7 @@
             <!-- </intent-filter> -->
         </activity>
         <activity
-            android:name=".Activity.Base.PINIntroActivity"
+            android:name=".Activity.Base.PinIntroActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.Base.StartActivity"
@@ -82,10 +82,10 @@
             android:name=".Activity.StudentInformation.UserActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.Security.SetUpPINCodeActivity"
+            android:name=".Security.SetUpPINCodeActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.Security.PINActivity"
+            android:name=".Security.PINActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.Payment.PaymentMethodActivity"
@@ -100,7 +100,7 @@
             android:name=".Activity.Authentication.ForgotPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.Security.EnterCodeActivity"
+            android:name=".Security.EnterCodeActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.Base.BaseActivity"
